@@ -24,6 +24,7 @@ db.connect(err => {
     console.log("Successfully connected to MySql: ",db.threadId);
 });
 
+    // QUESTION 1
 // 1. Retrieve all patients
 app.get('/patients', (req, res) => {
   db.query('SELECT patient_id, first_name, last_name, date_of_birth FROM patients', (err, results) => {
@@ -34,6 +35,7 @@ app.get('/patients', (req, res) => {
   });
 });
 
+    // QUESTION 2
 // 2. Retrieve all providers
 app.get('/providers', (req, res) => {
   db.query('SELECT first_name, last_name, provider_specialty FROM providers', (err, results) => {
@@ -44,6 +46,7 @@ app.get('/providers', (req, res) => {
   });
 });
 
+    // QUESTION 3
 // 3. Filter patients by First Name
 app.get('/patients/first-name/:firstName', (req, res) => {
   const { firstName } = req.params;
@@ -55,6 +58,7 @@ app.get('/patients/first-name/:firstName', (req, res) => {
   });
 });
 
+    // QUESTION 4
 // 4. Retrieve all providers by their specialty
 app.get('/providers/specialty/:specialty', (req, res) => {
   const { specialty } = req.params;
